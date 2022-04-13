@@ -34,7 +34,7 @@ console.log(x); // 1
 ```javascript
 console.log(bar); // undefined
 console.log(baz); // baz no esta definida
-foo();
+foo(); // 'Hola'
 function foo() { console.log('Hola!'); }
 var bar = 1;
 baz = 2;
@@ -45,7 +45,7 @@ var instructor = "Tony";
 if(true) {
     var instructor = "Franco";
 }
-console.log(instructor); // 'Franco'
+console.log(instructor); // 'Franco' porque if NO crea otro contexto de ejecucion 
 ```
 
 ```javascript
@@ -54,7 +54,7 @@ console.log(instructor); // 'Tony'
 (function() {
    if(true) {
       var instructor = "Franco";
-      console.log(instructor); // 'Franco'
+      console.log(instructor); // 'Franco' porque es una funcion IIFE (Invocada Inmediatamente - Un solo uso) y crea un nuevo contexto
    }
 })();
 console.log(instructor); // 'Tony'
@@ -127,9 +127,8 @@ function getFood(food) {
         return snack;
     }
     return snack;
-}
-
-getFood(false);
+console.log(getFood(false)); // Undefined
+;
 ```
 
 
@@ -153,7 +152,7 @@ console.log(obj.prop.getFullname()); // 'Aurelio De Rosa' Porque el 'this' esta 
 
 var test = obj.prop.getFullname;
 
-console.log(test()); // 'Juan Perez' porque a pesar de que copia el metodo de obj, como no tiene propiedad 'Fullname' el sistema busca mas arriba y lo encuentra en var fullname = 'Juan Perez'.
+console.log(test()); // 'Juan Perez' porque a pesar de que copia el metodo de obj, como no tiene propiedad 'Fullname' el sistema busca en el global var fullname = 'Juan Perez'.
 ```
 
 ### Event loop

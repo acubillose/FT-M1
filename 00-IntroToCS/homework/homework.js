@@ -30,12 +30,12 @@ function DecimalABinario(num) {
 
   var resto = [];
 
-  for (;num > 0;) {
-    resto.push(num%2);
+  while (num > 0) {
+    resto.unshift(num%2);
     num = Math.trunc(num/2);
   }
 
-  return resto.reverse().join('');
+  return resto.join('');
 }
 
 
