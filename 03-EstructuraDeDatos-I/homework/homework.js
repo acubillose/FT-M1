@@ -8,6 +8,7 @@ function nFactorial(n) {
   // ej:
   // el factorial de 3 es 6 (3 * 2 * 1)
 
+ if (n < 0) throw new Error ('No puede ser numero negativo')
  if (n === 0 || n === 1) return 1;
     return n * nFactorial (n-1);
     
@@ -31,18 +32,37 @@ function nFibonacci(n) {
 // dequeue: Remueve un valor de la queue. Obedece a FIFO y respeta el underflow (devuelve undefined cuando la queue tiene size cero, o sea, cuando no tiene ningún elemento).
 // size: Devuelve el número de elementos que contiene la queue.
 
-function Queue() {
-  this.queue = [];
-}
+// function Queue() {
+//   this.queue = [];
+// }
 
-Queue.prototype.enqueue = function(valor){
-  this.queue.push(valor);
-}
-Queue.prototype.dequeue = function(){
-  return this.queue.shift();
-}
-Queue.prototype.size = function(){
-  return this.queue.length;
+// Queue.prototype.enqueue = function(valor){
+//   this.queue.push(valor);
+// }
+// Queue.prototype.dequeue = function(){
+//   return this.queue.shift();
+// }
+// Queue.prototype.size = function(){
+//   return this.queue.length;
+// }
+
+class Queue {
+  constructor () {
+    this.queue = [];
+  }
+
+  enqueue (valor) {
+    this.queue.push (valor);
+  }
+
+  dequeue () {
+    return this.queue.shift ();
+  }
+
+  size () {
+    return this.queue.length;
+  }
+
 }
 
 
